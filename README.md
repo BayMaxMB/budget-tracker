@@ -1,2 +1,2 @@
-# excadel-hometask1
-REST API Endpoints
+# excadel-hw1
+REST Endpoints
