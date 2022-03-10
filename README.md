@@ -1,2 +1,2 @@
-# excadel-hometask1
+# budget-tracker
 REST API Endpoints
