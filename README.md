@@ -1,2 +1,2 @@
-# excadel-hw1
-REST Endpoints
+# budget-tracker
+REST API Endpoints
