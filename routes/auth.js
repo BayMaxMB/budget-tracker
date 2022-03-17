@@ -1,43 +1,63 @@
 const express = require('express');
+const jwt = require('jsonwebtoken');
 const router = express.Router();
+const db = require('../database');
+const { adminGuard } = require('../guards');
+const passport = require('passport');
+const JwtStrategy = require('passport-jwt').Strategy;
+const ExtractJwt = require('passport-jwt').ExtractJwt;
+const { jwtCallback } = require('../passport');
 
-const users = [{
-		email: "1810203bm@gmail.com",
-		password: "123456789",
-		credentials: {
-			first_name: "Bekzod",
-			last_name: "Mukhamedov",
-			date_of_birth: "10.11.1999",
-			gender: "male",
-			country_of_residence: "Uzbekistan",
-		},
-		role: "admin"
-	},
-	{
-		email: "JasonStatham@bk.ru",
-		password: "987654321",
-		credentials: {
-			first_name: "Jason",
-			last_name: "Statham",
-			date_of_birth: "01.01.1991",
-			gender: "male",
-			country_of_residence: "UK",
-		},
-		role: "user"
-	},
-	{
-		email: "GalGadot@gmail.com",
-		password: "000777999",
-		credentials: {
-			first_name: "Gal",
-			last_name: "Gadot",
-			date_of_birth: "10.10.1988",
-			gender: "female",
-			country_of_residence: "Georgia",
-		},
-		role: "user"
+const options = {
+	jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+	secretOrKey: process.env.JWT_SECRET,
+}
+passport.use(new JwtStrategy(options, jwtCallback));
+const auth = passport.authenticate('jwt', { session: false });
+
+router.post('/register', (req, res) => {
+	const { email, password, role } = req.body;
+	db.register({ email, password, role });
+
+	res.json(db.users);
+});
+
+router.post('/login', (req, res) => {
+	const user = db.login(req.body.email, req.body.password);
+
+	if (user) {
+
+		const payload = {
+			id: user.id,
+			email: user.email,
+			role: user.role,
+		}
+
+		const token = jwt.sign(
+			payload,
+			process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES_IN }
+		);
+
+		res.status(200).json({
+			id: user.id,
+			email: user.email,
+			role: user.role,
+			token: `Bearer ${token}`,
+		});
+	} else {
+		res.status(401).json({ message: 'Invalid credentials' });
 	}
-];
+});
+
+
+router.get('/users', auth, adminGuard, (req, res) => {
+	res.json(db.users);
+})
+
+router.get('/posts', auth, (req, res) => {
+	res.json(db.users);
+})
+
 
 router.get('/', (req, res) => {
 	const email = req.body.email;
@@ -64,4 +84,7 @@ router.post('/', (req, res) => {
 	res.json({ status: "user created" })
 });
 
-module.exports = router;
+module.exports = {
+	router,
+	passport
+};
