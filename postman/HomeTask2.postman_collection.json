@@ -6,13 +6,41 @@
 	},
 	"item": [
 		{
-			"name": "register",
+			"name": "register admin",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"email\": \"1810203bm@gmail.com\",\r\n    \"password\": \"bm09\",\r\n    \"role\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"JasonStatham@bk.ru\",\r\n    \"password\": \"987654321\",\r\n    \"role\": \"user\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -35,7 +63,7 @@
 			"response": []
 		},
 		{
-			"name": "login",
+			"name": "login admin",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -49,14 +77,41 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/auth/login",
+					"raw": "http://localhost:3000/login",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"JasonStatham@bk.ru\",\r\n    \"password\": \"987654321\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
 						"login"
 					]
 				}
@@ -74,7 +129,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IjE4MTAyMDNibUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NDc1NDI5MTMsImV4cCI6MTY0NzU0NjUxM30.FDZgQvb-js74lChV1b6mBykrAQaXLwCc1O8VVZQ0q-Q",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ikphc29uU3RhdGhhbUBiay5ydSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjQ3NzE5NjQxLCJleHAiOjE2NDc3MjMyNDF9.5LEXeRpACUlOiJqL5F2NhJL6gtfHSF0P7ea8SS4HBYY",
 							"type": "string"
 						}
 					]
@@ -91,14 +146,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/auth/users",
+					"raw": "http://localhost:3000/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"auth",
 						"users"
 					]
 				}
@@ -116,7 +170,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MC4wODgyOTM0ODU5NTIwNzI5OCwiZW1haWwiOiIxODEwMjAzYm1AZ21haWwyLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjQ3NTQxNDkyLCJleHAiOjE2NDc1NDUwOTJ9.g0JcQo562mOyG5nAuKCf3IpXnCa4xc5j_9y4j-kEv1w",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ikphc29uU3RhdGhhbUBiay5ydSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjQ3NzE5NjQxLCJleHAiOjE2NDc3MjMyNDF9.5LEXeRpACUlOiJqL5F2NhJL6gtfHSF0P7ea8SS4HBYY",
 							"type": "string"
 						}
 					]
@@ -133,14 +187,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/auth/posts",
+					"raw": "http://localhost:3000/posts",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"auth",
 						"posts"
 					]
 				}
