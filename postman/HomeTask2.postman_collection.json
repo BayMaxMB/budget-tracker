@@ -199,6 +199,240 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "accounts",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ikphc29uU3RhdGhhbUBiay5ydSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjQ3NzE5NjQxLCJleHAiOjE2NDc3MjMyNDF9.5LEXeRpACUlOiJqL5F2NhJL6gtfHSF0P7ea8SS4HBYY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "accounts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ikphc29uU3RhdGhhbUBiay5ydSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjQ3Nzk3MzIzLCJleHAiOjE2NDc4MDA5MjN9.UfI-khzq8tQic2-n-G5Ghs9ycLnMkFIHEZ16iibhUHw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"title\": \"UnionPay 9999\",\r\n        \"currency\": \"CNY\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "accounts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ikphc29uU3RhdGhhbUBiay5ydSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjQ3Nzk3MzIzLCJleHAiOjE2NDc4MDA5MjN9.UfI-khzq8tQic2-n-G5Ghs9ycLnMkFIHEZ16iibhUHw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"title\": \"UnionPay 9999\",\r\n        \"newTitle\": \"UnionPay 9900\",\r\n        \"currency\": \"CNY\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "categories",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ikphc29uU3RhdGhhbUBiay5ydSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjQ3Nzk3MzIzLCJleHAiOjE2NDc4MDA5MjN9.UfI-khzq8tQic2-n-G5Ghs9ycLnMkFIHEZ16iibhUHw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "categories",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ikphc29uU3RhdGhhbUBiay5ydSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjQ3Nzk3MzIzLCJleHAiOjE2NDc4MDA5MjN9.UfI-khzq8tQic2-n-G5Ghs9ycLnMkFIHEZ16iibhUHw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"title\": \"Health\",\r\n        \"type\": \"expense\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "categories",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ikphc29uU3RhdGhhbUBiay5ydSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjQ3Nzk3MzIzLCJleHAiOjE2NDc4MDA5MjN9.UfI-khzq8tQic2-n-G5Ghs9ycLnMkFIHEZ16iibhUHw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"title\": \"Transport\",\r\n        \"newTitle\": \"Transportation\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"categories"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

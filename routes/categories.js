@@ -1,76 +1,24 @@
 const express = require('express');
 const router = express.Router();
+const db = require('../database');
+const { auth } = require('../guards');
 
-const categories = [{
-		email: "1810203bm@gmail.com",
-		password: "123456789",
-		categories: [{
-			title: "Salary",
-			type: "income"
-		}, {
-			title: "Transport",
-			type: "expense"
-		}]
-	},
-	{
-		email: "JasonStatham@bk.ru",
-		password: "987654321",
-		categories: [{
-			title: "Salary",
-			type: "income"
-		}, {
-			title: "Transport",
-			type: "expense"
-		}]
-	},
-	{
-		email: "GalGadot@gmail.com",
-		password: "000777999",
-		categories: [{
-			title: "Salary",
-			type: "income"
-		}, {
-			title: "Transport",
-			type: "expense"
-		}]
-	}
-];
+router.get('/', auth, (req, res) => {
+	res.json(req.user.categories);
+})
 
-router.get('/', (req, res) => {
-	const email = req.body.email;
-	const password = req.body.password;
-	let currentUser = {};
-	if (categories.some(user => {
-			if (user.email === email && user.password === password) {
-				currentUser = user;
-				return true;
-			} else {
-				return false;
-			}
-		})) {
-		res.json(currentUser.categories);
-	} else {
-		res.json({
-			error: "Email of Password is incorrect"
-		})
-	}
+router.post('/', auth, (req, res) => {
+	req.user.categories.push(req.body);
+	res.json(req.user.categories);
 });
-
-router.post('/', (req, res) => {
-	const email = req.body.email;
-	const password = req.body.password;
-	for (let i = 0; i < categories.length; i++) {
-		if (categories[i].email === email && categories[i].password === password) {
-			categories[i].categories.push(req.body.category);
-			res.json({
-				message: "Category created"
-			})
+router.put('/', auth, (req, res) => {
+	for (let i = 0; i < req.user.categories.length; i++) {
+		if (req.user.categories[i].title === req.body.title) {
+			req.user.categories[i].title = req.body.newTitle;
 			break;
 		}
 	}
-	res.json({
-		error: "Email of Password is incorrect"
-	})
+	res.json(req.user.categories);
 });
 
 module.exports = router;
