@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
+const { findByEmail, byName } = require('../services/users');
 
 const userSchema = new mongoose.Schema({
 	email: {
@@ -15,27 +16,25 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	credentials: {
-		first_name: {
-			type: String,
-			required: true
-		},
-		last_name: {
-			type: String,
-			required: true
-		},
-		date_of_birth: {
-			type: String,
-			required: true
-		},
-		gender: {
-			type: String,
-			required: true
-		},
-		country_of_residence: {
-			type: String,
-			required: true
-		},
+	first_name: {
+		type: String,
+		required: true
+	},
+	last_name: {
+		type: String,
+		required: true
+	},
+	date_of_birth: {
+		type: String,
+		required: true
+	},
+	gender: {
+		type: String,
+		required: true
+	},
+	country_of_residence: {
+		type: String,
+		required: true
 	},
 	accounts: {
 		type: [{
@@ -93,22 +92,16 @@ const userSchema = new mongoose.Schema({
 	timestamps: true
 });
 
-userSchema.methods.sayHi = function() {
-	console.log(`Hi, I'm ${this.name}`);
-}
-
 userSchema.statics.register = async function(user) {
 	const temp = {
 		email: user.email,
 		password: bcrypt.hashSync(user.password, 10),
 		role: user.role,
-		credentials: {
-			first_name: user.credentials.first_name,
-			last_name: user.credentials.last_name,
-			date_of_birth: user.credentials.date_of_birth,
-			gender: user.credentials.gender,
-			country_of_residence: user.credentials.country_of_residence
-		}
+		first_name: user.first_name,
+		last_name: user.last_name,
+		date_of_birth: user.date_of_birth,
+		gender: user.gender,
+		country_of_residence: user.country_of_residence
 	}
 	const newUser = await this.create(temp);
 	return newUser;
@@ -123,26 +116,8 @@ userSchema.statics.login = async function(email, password) {
 	return null;
 }
 
-userSchema.statics.findByEmail = async function(email) {
-	return this.where({ email: new RegExp(email, 'i') }).exec();
-}
+userSchema.statics.findByEmail = findByEmail
 
-userSchema.query.byName = function(name) {
-	return this.where({ name: new RegExp(name, 'i') });
-}
-
-// userSchema.virtual('namedEmail')
-// 	.get(function() {
-// 		return `${this.name} <${this.email}>`;
-// 	});
-
-// userSchema.pre('save', function(next) {
-// 	this.edited++;
-// 	next();
-// })
-
-// userSchema.post('save', function(doc) {
-// 	console.log(`${doc.name} has been saved`);
-// });
+userSchema.query.byName = byName
 
 module.exports = mongoose.model('User', userSchema);

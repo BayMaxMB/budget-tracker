@@ -4,22 +4,18 @@ const { auth } = require('../guards');
 const User = require('../models/users');
 
 router.get('/', auth, async(req, res) => {
-	const user = await User.findOne({ email: req.user.email });
+	const user = await User.findByEmail(req.user.email);
 	res.json(user.accounts);
 })
 
 router.post('/', auth, async(req, res) => {
-	const user = await User.findOne({ email: req.user.email });
-	const add = await User.updateOne({ email: req.user.email }, {
+	const user = await User.findByEmail(req.user.email);
+	const add = await user.updateOne({
 		$push: {
 			accounts: req.body
 		}
 	})
 
-	// req.body.ammount = 0;
-	// req.body.income = [];
-	// req.body.expence = [];
-	// req.user.accounts.push(req.body);
 	res.json(add);
 });
 router.put('/', auth, (req, res) => {
