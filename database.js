@@ -15,7 +15,8 @@ function register(user) {
 			gender: user.gender,
 			country_of_residence: user.country_of_residence
 		},
-		accounts: []
+		accounts: [],
+		categories: []
 	});
 }
 

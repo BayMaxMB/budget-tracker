@@ -4,7 +4,9 @@
 	"description": "",
 	"main": "server.js",
 	"scripts": {
-		"test": "nodemon server.js"
+		"test": "nodemon server.js",
+		"mongo": "nodemon script.js",
+		"app2": "nodemon app2.js"
 	},
 	"keywords": [],
 	"author": "",
@@ -18,6 +20,7 @@
 		"cors": "^2.8.5",
 		"express": "^4.17.3",
 		"jsonwebtoken": "^8.5.1",
+		"mongoose": "^6.2.7",
 		"passport": "^0.5.2",
 		"passport-jwt": "^4.0.0"
 	}

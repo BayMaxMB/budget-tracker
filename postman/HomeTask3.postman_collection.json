@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "6346a4c6-9ea6-4cdf-8a8a-ee7b3a647909",
+		"name": "HomeTask3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IjE4MTAyMDNibUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NDc4NDg2MTksImV4cCI6MTY0Nzg1MjIxOX0.IanHB0HqosdRx9NmQt8BmbaO5fG41Qo4sSn14Q7e1s0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"1810203bm5@gmail.com\",\r\n\t\"password\": \"bm09\",\r\n\t\"role\": \"admin\",\r\n\t\"credentials\": {\r\n\t\t\"first_name\": \"Bekzod\",\r\n\t\t\"last_name\": \"Mukhamedov\",\r\n\t\t\"date_of_birth\": \"10/11/1999\",\r\n\t\t\"gender\": \"male\",\r\n\t\t\"country_of_residence\": \"Uzbekistan\"\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"Jason@gmail.com\",\r\n\t\"password\": \"Jason007\",\r\n\t\"role\": \"user\",\r\n\t\"credentials\": {\r\n\t\t\"first_name\": \"Jason\",\r\n\t\t\"last_name\": \"Statham\",\r\n\t\t\"date_of_birth\": \"10/11/1991\",\r\n\t\t\"gender\": \"male\",\r\n\t\t\"country_of_residence\": \"UK\"\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"1810203bm@gmail.com\",\r\n    \"password\": \"bm09\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"Jason@gmail.com\",\r\n\t\"password\": \"Jason007\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "accounts",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzgzNjI4YzM0ZjQyM2MzZjI5MWNkYSIsImVtYWlsIjoiSmFzb25AZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2NDc4NTIyMDIsImV4cCI6MTY0Nzg1NTgwMn0.ARhg93AG0JLWX1oyfQlttOtT2vko6c0yyiOlb6NKIN4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "accounts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzgzNjI4YzM0ZjQyM2MzZjI5MWNkYSIsImVtYWlsIjoiSmFzb25AZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2NDc4NTIyMDIsImV4cCI6MTY0Nzg1NTgwMn0.ARhg93AG0JLWX1oyfQlttOtT2vko6c0yyiOlb6NKIN4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"title\": \"UnionPay 9999\",\r\n        \"currency\": \"CNY\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

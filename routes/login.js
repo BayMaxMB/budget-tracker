@@ -3,9 +3,10 @@ const jwt = require('jsonwebtoken');
 const router = express.Router();
 const db = require('../database');
 const { jwt_secret, jwt_expires_in } = require('../config');
+const User = require('../models/users');
 
-router.post('/', (req, res) => {
-	const user = db.login(req.body.email, req.body.password);
+router.post('/', async(req, res) => {
+	const user = await User.login(req.body.email, req.body.password);
 
 	if (user) {
 		const payload = {
