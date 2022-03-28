@@ -4,16 +4,18 @@
 	"description": "",
 	"main": "server.js",
 	"scripts": {
-		"test": "nodemon server.js",
-		"mongo": "nodemon script.js",
-		"app2": "nodemon app2.js"
+		"start": "nodemon server.js",
+		"test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+		"test:cov": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
 		"dotenv": "^16.0.0",
-		"nodemon": "^2.0.15"
+		"jest": "^27.5.1",
+		"nodemon": "^2.0.15",
+		"supertest": "^6.2.2"
 	},
 	"dependencies": {
 		"bcrypt": "^5.0.1",
