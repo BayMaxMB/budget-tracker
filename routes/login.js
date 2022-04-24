@@ -24,6 +24,7 @@ router.post('/', async(req, res) => {
 			email: user.email,
 			role: user.role,
 			token: `Bearer ${token}`,
+			expiresIn: 1 * 60 * 60 * 1000,
 		});
 	} else {
 		res.status(401).json({ message: 'Invalid credentials' });
