@@ -9,15 +9,17 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./auth-form.component.scss'],
 })
 export class AuthFormComponent {
-  public loginForm: FormGroup = new FormGroup({
+  loginForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
   });
   constructor(private authService: AuthService, private router: Router) {}
 
-  public onSubmit(): void {
+  onSubmit() {
     const { email, password } = this.loginForm.value;
     this.authService.login(email, password).subscribe((data) => {
+      console.log('succesful login');
+      console.log(data);
       this.router.navigateByUrl('/transaction');
     });
   }

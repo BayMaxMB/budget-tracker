@@ -1,27 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-const apiURL = 'http://localhost:3000';
-
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  public login(email: string, password: string): Observable<Object> {
+  login(email: string, password: string) {
     const body = new HttpParams().set('email', email).set('password', password);
     return this.http
-      .post(`${apiURL}/login`, body)
+      .post('http://localhost:3000/login', body)
       .pipe(tap((res) => this.setSession(res)));
   }
 
-  public getAccounts(): Observable<Object> {
-    return this.http.get(`${apiURL}/accounts`);
+  getAccounts() {
+    return this.http.get('http://localhost:3000/accounts');
   }
 
-  public isLoggedIn(): boolean {
+  isLoggedIn() {
     const expiresIn = localStorage.getItem('expiresIn');
     if (expiresIn) {
       return Date.now() < Number(expiresIn);
@@ -29,7 +26,7 @@ export class AuthService {
     return false;
   }
 
-  public logout(): void {
+  logout() {
     localStorage.removeItem('idToken');
     localStorage.removeItem('expiresIn');
   }

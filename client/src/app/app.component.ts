@@ -8,16 +8,20 @@ import { AuthService } from './auth/services/auth.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  public title: string = 'budget-tracker';
+  title = 'budget-tracker';
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  public get isLoggedIn(): boolean {
+  get isLoggedIn() {
     return this.authService.isLoggedIn();
   }
 
-  public logout(): void {
+  logout() {
     this.authService.logout();
     this.router.navigateByUrl('/login');
+  }
+
+  getAccounts() {
+    this.authService.getAccounts().subscribe((data) => console.log(data));
   }
 }

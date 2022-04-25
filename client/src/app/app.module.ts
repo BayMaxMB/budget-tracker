@@ -7,16 +7,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
 import { TransactionModule } from './transaction/transaction.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth/auth.interceptor';
-import { LayoutModule } from './layout/layout.module';
-import { NotFoundModule } from './not-found/not-found.module';
-import { CategoryModule } from './category/category.module';
-import { StatsModule } from './stats/stats.module';
-import { AccountModule } from './account/account.module';
+import { CategoryComponent } from './category/category.component';
+import { StatsComponent } from './stats/stats.component';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    NotFoundComponent,
+    CategoryComponent,
+    StatsComponent,
+    AccountComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -24,11 +29,6 @@ import { AccountModule } from './account/account.module';
     SharedModule,
     TransactionModule,
     HttpClientModule,
-    LayoutModule,
-    NotFoundModule,
-    CategoryModule,
-    StatsModule,
-    AccountModule,
     AppRoutingModule,
   ],
   providers: [
