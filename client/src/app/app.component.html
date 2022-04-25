@@ -1,0 +1,4 @@
+<button routerLink="/transaction" *ngIf="isLoggedIn">Transaction</button>
+<button *ngIf="isLoggedIn" (click)="getAccounts()">Accounts</button>
+<button *ngIf="isLoggedIn" (click)="logout()">Logout</button>
+<router-outlet></router-outlet>
