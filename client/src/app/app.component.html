@@ -1,4 +1,14 @@
-<button routerLink="/transaction" *ngIf="isLoggedIn">Transaction</button>
-<button *ngIf="isLoggedIn" (click)="getAccounts()">Accounts</button>
-<button *ngIf="isLoggedIn" (click)="logout()">Logout</button>
-<router-outlet></router-outlet>
+<mat-sidenav-container class="sidenav">
+    <mat-sidenav class="sidenav__aside" #aside>
+        <app-menu></app-menu>
+    </mat-sidenav>
+    <mat-sidenav-content class="sidenav__content">
+        <app-header [isLoggedIn]="isLoggedIn" (menuButtonClicked)="aside.toggle()" (loggedOutClicked)="logout()"></app-header>
+
+        <section class="sidenav__main-content">
+            <router-outlet></router-outlet>
+        </section>
+
+        <app-footer class="sidenav__footer"></app-footer>
+    </mat-sidenav-content>
+</mat-sidenav-container>

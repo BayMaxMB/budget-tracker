@@ -13,6 +13,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { CategoryComponent } from './category/category.component';
 import { StatsComponent } from './stats/stats.component';
 import { AccountComponent } from './account/account.component';
+import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AccountComponent } from './account/account.component';
     SharedModule,
     TransactionModule,
     HttpClientModule,
+    LayoutModule,
     AppRoutingModule,
   ],
   providers: [
