@@ -11,7 +11,7 @@ export class MenuComponent {
   menu: IMenuItem[] = MENU_CONFIG;
   constructor() {}
 
-  trackBy(index: number, item: IMenuItem): string | number {
+  public trackBy(index: number, item: IMenuItem): string | number {
     return item.id;
   }
 }

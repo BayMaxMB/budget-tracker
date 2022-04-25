@@ -7,10 +7,10 @@ import { AuthService } from '../auth/services/auth.service';
   styleUrls: ['./account.component.scss'],
 })
 export class AccountComponent implements OnInit {
-  accounts: string = '';
+  public accounts: string = '';
   constructor(private authService: AuthService) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.authService
       .getAccounts()
       .subscribe((data) => (this.accounts = JSON.stringify(data, null, '\t')));
