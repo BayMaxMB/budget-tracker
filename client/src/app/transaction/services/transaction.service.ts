@@ -28,6 +28,5 @@ export class TransactionService {
       isDone: false,
     },
   ];
-
   constructor() {}
 }
