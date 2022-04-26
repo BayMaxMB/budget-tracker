@@ -11,6 +11,18 @@ export const MENU_CONFIG: IMenuItem[] = [
     id: 'account',
     title: 'Accounts',
     route: '/account',
-    icon: 'summarize',
+    icon: 'credit_card',
+  },
+  {
+    id: 'category',
+    title: 'Categories',
+    route: '/category',
+    icon: 'category',
+  },
+  {
+    id: 'stats',
+    title: 'Statistics',
+    route: '/stats',
+    icon: 'query_stats',
   },
 ];
