@@ -1,0 +1,11 @@
+@use "src/variables" as var;
+.create-transaction {
+    position: sticky;
+    padding: 1rem;
+    background: var.$app-white;
+    top: 0;
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+}

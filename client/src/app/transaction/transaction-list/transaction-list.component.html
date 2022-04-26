@@ -1,0 +1,16 @@
+<mat-card class="transaction" *ngFor="let transaction of transactions; let i = index">
+    <mat-card-title class="transaction__title">{{transaction.name}}</mat-card-title>
+    <mat-card-content class="transaction__content">
+        <p class="transaction__description">{{transaction.description}}</p>
+        <p class="transaction__dates">
+            <div>Created at: {{transaction.createdAt | date}}</div>
+            <div>Expire at: {{transaction.expireAt | date}}</div>
+    </mat-card-content>
+    <mat-card-actions class="transaction__actions">
+        <button class="transaction__button" mat-flat-button color="primary" [disabled]="transaction.isDone">Done</button>
+        <button class="transaction__button" mat-flat-button color="warn">Delete</button>
+    </mat-card-actions>
+    <mat-card-footer *ngIf="transaction.isDone " class="transaction__footer ">
+        Transaction Complete
+    </mat-card-footer>
+</mat-card>

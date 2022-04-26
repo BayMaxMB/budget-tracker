@@ -1,0 +1,10 @@
+.transactions {
+    display: flex;
+    padding: 0 1rem;
+    &__transactions-list {
+        width: 100%;
+    }
+    &__create-transaction {
+        margin: 0 1rem;
+    }
+}
