@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { tap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
 const apiURL = 'http://localhost:3000';
 
 @Injectable({
@@ -10,11 +10,12 @@ const apiURL = 'http://localhost:3000';
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  public login(email: string, password: string): Observable<Object> {
+  public login(email: string, password: string): Observable<unknown> {
     const body = new HttpParams().set('email', email).set('password', password);
-    return this.http
-      .post(`${apiURL}/login`, body)
-      .pipe(tap((res) => this.setSession(res)));
+    return this.http.post(`${apiURL}/login`, body).pipe(
+      tap((res) => this.setSession(res)),
+      catchError((err) => throwError(() => '401'))
+    );
   }
 
   public getAccounts(): Observable<Object> {
